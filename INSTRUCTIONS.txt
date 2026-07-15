@@ -1,0 +1,162 @@
+================================================================
+  SW.CA1 — MILESTONE 1 SETUP INSTRUCTIONS
+  Read this carefully and follow each step one by one.
+================================================================
+
+WHAT YOU NEED BEFORE STARTING
+──────────────────────────────
+✅ Node.js (already installed)
+✅ The SWCA1 folder on your Desktop
+
+================================================================
+STEP 1 — OPEN THE COMMAND WINDOW INSIDE THE SWCA1 FOLDER
+================================================================
+
+1. Go to your Desktop
+2. Open the SWCA1 folder
+3. Click on the address bar at the top of the folder window
+   (the part that shows the folder path like "Desktop > SWCA1")
+4. Type exactly this:  cmd
+5. Press Enter
+
+A black window will open — this time it is already inside
+the SWCA1 folder. This is important.
+
+================================================================
+STEP 2 — INSTALL THE REQUIRED PACKAGES
+================================================================
+
+In the black window, type this exactly and press Enter:
+
+   npm install
+
+You will see text scrolling for about 30-60 seconds.
+This is normal — it is downloading the tools the app needs.
+Wait until it stops and you see a blinking cursor again.
+
+================================================================
+STEP 3 — START THE SYSTEM
+================================================================
+
+Type this exactly and press Enter:
+
+   npm start
+
+You will see this message appear:
+
+   ✅ SW.CA1 is running
+   ✅ Database connected
+   👉 Open your browser and go to: http://localhost:3000
+
+================================================================
+STEP 4 — OPEN THE DASHBOARD
+================================================================
+
+Open your browser (Chrome, Edge, or any browser).
+In the address bar, type exactly:
+
+   localhost:3000
+
+Press Enter.
+
+You should see a dark page that says:
+"System is Running" with green dots next to Server and Database.
+
+================================================================
+WHAT TO REPORT BACK
+================================================================
+
+Tell me one of these:
+
+✅ SUCCESS — "I can see the System is Running page"
+❌ PROBLEM — Copy and paste whatever error you see in the
+              black window and share it with me
+
+================================================================
+IMPORTANT — HOW TO STOP THE SYSTEM
+================================================================
+
+When you want to stop SW.CA1, click on the black window
+and press:  Ctrl + C
+
+To start it again later, just repeat Step 1 and Step 3.
+
+================================================================
+  OPTIONAL — VIEWING THE DASHBOARD FROM OTHER COMPUTERS
+  (Multi-Device Access over your office wifi/network)
+================================================================
+
+SW.CA1 already shares the dashboard with other computers on your
+office network automatically — nothing extra to install. You just
+need to find one address and share it with the other computers.
+
+WHERE TO FIND THE ADDRESS
+──────────────────────────
+When you start the system (Step 3), the black window will now
+show TWO lines, like this:
+
+   ✅ SW.CA1 is running
+      On this computer      → http://localhost:3000
+      On other computers    → http://192.168.1.42:3000
+      Press Ctrl+C to stop
+
+The second line — "On other computers" — is the one to share.
+The numbers will be different on your own network; that's normal.
+
+IF YOU NEED TO FIND IT MANUALLY (Windows)
+────────────────────────────────────────
+1. Click the Start menu and type: cmd
+2. Open "Command Prompt"
+3. Type: ipconfig
+4. Press Enter
+5. Look for "IPv4 Address" — it looks like 192.168.x.x or 10.x.x.x
+
+IF YOU NEED TO FIND IT MANUALLY (Mac)
+──────────────────────────────────────
+1. Click the Apple menu → System Settings
+2. Click "Wi-Fi" (or "Network" if using a cable)
+3. Click the network you're connected to → "Details"
+4. Look for "IP Address" — it looks like 192.168.x.x
+
+HOW TO SET IT UP ON THE OTHER OFFICE COMPUTERS
+────────────────────────────────────────────────
+On each other computer in the office:
+
+1. Open a browser (Chrome, Edge, Safari — any browser)
+2. In the address bar, type the full address exactly as shown,
+   for example:  http://192.168.1.42:3000
+3. Press Enter — the dashboard should load, live, same as the
+   main computer
+4. To make it a one-click bookmark:
+   • Chrome / Edge — click the star (☆) icon in the address bar,
+     or press Ctrl+D (Windows) / Cmd+D (Mac)
+   • Safari — click Share (box with an arrow) → Add Bookmark
+   Give it a clear name like "SW.CA1 Dashboard" so staff can
+   find it easily next time.
+
+IMPORTANT NOTES
+─────────────────
+• The main computer must stay ON and SW.CA1 must stay RUNNING
+  for other computers to see the dashboard. If you stop the
+  system (Ctrl+C) or turn off the main computer, other computers
+  will lose the connection until it's started again.
+• This only works for computers on the SAME office wifi/network —
+  it will not work from home or outside the office. This keeps
+  client data private, off the public internet.
+• There is currently no login/password on the dashboard. Anyone
+  on your office wifi who has the address can open it — so make
+  sure your office wifi password is kept to staff only, not
+  shared as a public/guest network.
+• A small "Server Online" light in the bottom-left corner shows
+  if the connection is live. If it turns red ("Server
+  Unreachable"), the main computer has gone offline or the
+  network dropped — check that it's still running.
+• If the main computer's address ever changes (e.g. after a
+  router restart), repeat "WHERE TO FIND THE ADDRESS" above and
+  re-bookmark on the other computers.
+• To turn off network sharing entirely (only the main computer
+  can see the dashboard), open config.json and change
+  "network": { "enabled": true } to "enabled": false, then
+  restart the system.
+
+================================================================

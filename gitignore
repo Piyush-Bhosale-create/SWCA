@@ -1,0 +1,23 @@
+# ---- Dependencies ----
+node_modules/
+
+# ---- Runtime caches (auto-regenerated) ----
+.wwebjs_cache/
+
+# ---- Secrets — never commit ----
+credentials/
+license-keys/
+license.json
+.env
+
+# ---- Confidential client data ----
+data/
+
+# ---- Logs ----
+logs/
+
+# ---- Editor settings (remove this line if you want to share launch.json) ----
+.vscode/
+
+# ---- Generated dev docs (optional, regenerate anytime) ----
+path_tree.txt

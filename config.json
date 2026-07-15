@@ -1,0 +1,43 @@
+{
+  "app": {
+    "port": 3000,
+    "name": "SW.CA1",
+    "version": "1.0.0",
+    "theme": "midnight"
+  },
+  "network": {
+    "enabled": true
+  },
+  "license": {
+    "path": "./license.json",
+    "support_contact": "piyush.n.bhosale@gmail.com",
+    "firebase_url": "https://swp1licensing-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "remote_check_hours": 12,
+    "activation_code_max_age_days": 60
+  },
+  "ai": {
+    "model": "gemma2:2b",
+    "host": "http://localhost:11434"
+  },
+  "gmail": {
+    "accounts": []
+  },
+  "whatsapp": {
+    "numbers": []
+  },
+  "database": {
+    "path": "./data/swca1.db"
+  },
+  "sync": {
+    "interval_seconds": 30,
+    "backup_time": "02:00"
+  },
+  "drive": {
+    "folder_name": "SW.CA1 Backups",
+    "credentials_path": "./credentials/google-credentials.json"
+  },
+  "notifications": {
+    "deadline_warning_days": 3,
+    "no_contact_warning_days": 7
+  }
+}

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SW.CA1 — Simplify Workflow for CAs</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+    :root {
+      --bg:       #0d1117;
+      --surface:  #161b22;
+      --border:   #30363d;
+      --gold:     #d4a843;
+      --gold-dim: #a07830;
+      --text:     #e6edf3;
+      --muted:    #7d8590;
+      --green:    #3fb950;
+      --blue:     #58a6ff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3rem 3.5rem;
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.4);
+      animation: fadeUp 0.6s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 0.4rem;
+    }
+
+    .logo-badge {
+      background: var(--gold);
+      color: #0d1117;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 6px;
+      letter-spacing: 0.05em;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .tagline {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      letter-spacing: 0.01em;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(63, 185, 80, 0.1);
+      border: 1px solid rgba(63, 185, 80, 0.3);
+      color: var(--green);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 2.5rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.3; }
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      text-align: left;
+    }
+
+    .info-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+    }
+
+    .info-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .info-value {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .info-value.gold { color: var(--gold); }
+    .info-value.blue { color: var(--blue); }
+
+    .services-row {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .service-tag {
+      background: rgba(212, 168, 67, 0.1);
+      border: 1px solid rgba(212, 168, 67, 0.25);
+      color: var(--gold);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 4px 14px;
+      border-radius: 999px;
+    }
+
+    .milestone-note {
+      background: rgba(88, 166, 255, 0.06);
+      border: 1px solid rgba(88, 166, 255, 0.2);
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .milestone-note strong {
+      color: var(--blue);
+      font-weight: 500;
+    }
+
+    .footer {
+      margin-top: 2.5rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="logo-line">
+    <span class="logo-badge">SW.CA1</span>
+    <h1>Simplify Workflow</h1>
+  </div>
+  <p class="tagline">AI-powered compliance management for CA &amp; CMA firms</p>
+
+  <div class="status-pill">
+    <span class="dot"></span>
+    System is running
+  </div>
+
+  <div class="info-grid">
+    <div class="info-box">
+      <div class="info-label">Version</div>
+      <div class="info-value gold" id="version">Loading...</div>
+    </div>
+    <div class="info-box">
+      <div class="info-label">Database</div>
+      <div class="info-value" id="db-status">Checking...</div>
+    </div>
+    <div class="info-box">
+      <div class="info-label">Server Time</div>
+      <div class="info-value blue" id="server-time">—</div>
+    </div>
+    <div class="info-box">
+      <div class="info-label">Milestone</div>
+      <div class="info-value">1 of 14</div>
+    </div>
+  </div>
+
+  <div class="services-row" id="services-row">
+    <span class="service-tag">Loading services...</span>
+  </div>
+
+  <div class="milestone-note">
+    <strong>Milestone 1 complete.</strong> Foundation is ready — server running,
+    database initialized, all tables created. Next: dashboard UI shell.
+  </div>
+
+</div>
+
+<div class="footer">SW.CA1 v1.0 &nbsp;·&nbsp; Running locally on this device &nbsp;·&nbsp; No data leaves this computer</div>
+
+<script>
+  fetch('/api/status')
+    .then(r => r.json())
+    .then(data => {
+      document.getElementById('version').textContent    = data.version;
+      document.getElementById('db-status').textContent  = 'Ready';
+      document.getElementById('server-time').textContent =
+        new Date(data.time).toLocaleTimeString('en-IN');
+
+      const row = document.getElementById('services-row');
+      row.innerHTML = data.services
+        .map(s => `<span class="service-tag">${s}</span>`)
+        .join('');
+    })
+    .catch(() => {
+      document.getElementById('db-status').textContent = 'Error';
+    });
+</script>
+
+</body>
+</html>
