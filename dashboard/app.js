@@ -12,7 +12,7 @@ const PAGE_META = {
 };
 
 // ── Current state ──
-let currentTheme = localStorage.getItem('swca1_theme') || 'ocean';
+let currentTheme = localStorage.getItem('swca1_theme') || 'white';
 let currentPage  = 'inbox';
 let selectedRows = new Set();
 let notifOpen    = false;
@@ -223,6 +223,65 @@ function setAiOffline() {
   txt.textContent = 'AI Offline';
   const aiModel = document.getElementById('aiModelDisplay');
   if (aiModel) aiModel.textContent = 'Ollama not running — start it first';
+}
+
+// ════════ SIDE DRAWER ════════
+let activeDrawerSize = 'md';
+
+function openDrawer(options = {}) {
+  const drawer = document.getElementById('globalDrawer');
+  const backdrop = document.getElementById('globalDrawerBackdrop');
+  if(!drawer || !backdrop) return;
+  
+  // Set size
+  const size = options.size || 'md';
+  drawer.className = 'drawer drawer-' + size;
+  activeDrawerSize = size;
+
+  // Set header
+  document.getElementById('drawerTitle').textContent = options.title || '';
+  document.getElementById('drawerSubtitle').textContent = options.subtitle || '';
+  
+  const iconEl = document.getElementById('drawerIcon');
+  if (options.icon) {
+    iconEl.textContent = options.icon;
+    iconEl.style.display = 'flex';
+  } else {
+    iconEl.style.display = 'none';
+  }
+
+  // Set body
+  document.getElementById('drawerBody').innerHTML = options.content || '';
+
+  // Show drawer
+  backdrop.classList.add('drawer-open');
+  drawer.classList.add('drawer-open');
+  
+  // Close on Escape
+  document.addEventListener('keydown', handleDrawerEsc);
+}
+
+function closeDrawer() {
+  const drawer = document.getElementById('globalDrawer');
+  const backdrop = document.getElementById('globalDrawerBackdrop');
+  if(backdrop) backdrop.classList.remove('drawer-open');
+  if(drawer) drawer.classList.remove('drawer-open');
+  document.removeEventListener('keydown', handleDrawerEsc);
+}
+
+function handleDrawerEsc(e) {
+  if (e.key === 'Escape') closeDrawer();
+}
+
+function toggleDrawerSize() {
+  const drawer = document.getElementById('globalDrawer');
+  if(!drawer) return;
+  
+  if (drawer.classList.contains('drawer-xl')) {
+    drawer.className = 'drawer drawer-' + activeDrawerSize + ' drawer-open';
+  } else {
+    drawer.className = 'drawer drawer-xl drawer-open';
+  }
 }
 
 // ════════ HELPERS ════════
