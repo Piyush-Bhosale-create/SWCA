@@ -54,11 +54,11 @@ const LICENSE_REMOTE_HOURS   = (appConfig.license && appConfig.license.remote_ch
 const LICENSE_ACTIVATION_MAX_AGE_DAYS = (appConfig.license && appConfig.license.activation_code_max_age_days) || 60;
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'dashboard')));
+app.use(express.static(path.join(__dirname, 'frontend')));
 
 // ── Root ──────────────────────────────────────────────────────────────────────
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dashboard', 'index.html'));
+  res.sendFile(path.join(__dirname, 'frontend', 'index.html'));
 });
 
 // GET /api/ping — lightweight connectivity check. Used by the dashboard's
